@@ -15,6 +15,7 @@ namespace SheetsQuickstart
 {
     class Program
     {
+        // ------------Google Provided Code W/ Minor Changes. Such as spreadSheetID, Range, and comment containing sheets link
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
         static string[] Scopes = { SheetsService.Scope.Drive };
