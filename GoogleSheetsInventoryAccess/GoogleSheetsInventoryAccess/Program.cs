@@ -68,6 +68,8 @@ namespace SheetsQuickstart
                     // Print columns A and D, which correspond to indices 0 and 3.
                     //Console.WriteLine("{0},{1},{2},{3}", row[0], row [1], row[2], row[3]);
                     //Send data to sqlServer Database "InventoryTest"
+
+                    //change Data Source to name of server
                     SqlConnection inv = new SqlConnection("Data Source=DESKTOP-VB076EU; Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
                     {
                         //Attempt to get the EmployeeID
