@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace SheetsQuickstart
 {
@@ -50,7 +51,7 @@ namespace SheetsQuickstart
 
             // Define request parameters.
             String spreadsheetId = "14g46VAUsxqAkevmNDKdrc0c5R3L1cOfN6PsBYz_2zf0";
-            String range = "A1:D";
+            String range = "A2:D";
             SpreadsheetsResource.ValuesResource.GetRequest request =
                     service.Spreadsheets.Values.Get(spreadsheetId, range);
 
@@ -60,11 +61,32 @@ namespace SheetsQuickstart
             IList<IList<Object>> values = response.Values;
             if (values != null && values.Count > 0)
             {
-                Console.WriteLine("Name, Major");
                 foreach (var row in values)
                 {
                     // Print columns A and D, which correspond to indices 0 and 3.
-                    Console.WriteLine("{0}, {1}", row[0], row[3]);
+                    //Console.WriteLine("{0},{1},{2},{3}", row[0], row [1], row[2], row[3]);
+                    //TODO: Send data to sqlServer Database "InventoryTest"
+                    SqlConnection inv = new SqlConnection("Data Source=ALEX-PC;Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
+                    {
+                        SqlCommand insertPart =
+                            new SqlCommand("insert into PartsAdded(EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName)"
+                            + "values(CURRENT_TIMESTAMP," +
+                            "@PartNumber," +
+                            "@Quantity," +
+                            "(SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + row[3] + "')," +
+                            "@EmployeeName)", inv);
+
+                        insertPart.Parameters.AddWithValue("@PartNumber", row[1]);
+                        insertPart.Parameters.AddWithValue("@Quantity", row[2]);
+                        //insertPart.Parameters.AddWithValue("@EmployeeID", "(select EmployeeID from Employees where EmployeeName = '" + row[3] + "')");
+                        insertPart.Parameters.AddWithValue("@EmployeeName", row[3]);
+
+                        inv.Open();
+                        insertPart.ExecuteNonQuery();
+                        inv.Close();
+
+
+                    }
                 }
             }
             else
