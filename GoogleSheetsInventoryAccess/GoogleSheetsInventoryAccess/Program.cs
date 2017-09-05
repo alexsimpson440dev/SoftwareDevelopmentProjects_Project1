@@ -57,33 +57,56 @@ namespace SheetsQuickstart
 
             // Prints the names and majors of students in a sample spreadsheet:
             // https://docs.google.com/spreadsheets/d/14g46VAUsxqAkevmNDKdrc0c5R3L1cOfN6PsBYz_2zf0/edit
+
             ValueRange response = request.Execute();
             IList<IList<Object>> values = response.Values;
             if (values != null && values.Count > 0)
+
             {
                 foreach (var row in values)
                 {
                     // Print columns A and D, which correspond to indices 0 and 3.
                     //Console.WriteLine("{0},{1},{2},{3}", row[0], row [1], row[2], row[3]);
-                    //TODO: Send data to sqlServer Database "InventoryTest"
-                    SqlConnection inv = new SqlConnection("Data Source=ALEX-PC;Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
+                    //Send data to sqlServer Database "InventoryTest"
+                    SqlConnection inv = new SqlConnection("Data Source=DESKTOP-VB076EU; Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
                     {
+                        //Attempt to get the EmployeeID
+                        //String that sets the employee name for current row
+                        string employeeName = row[3].ToString();
+                        //opens connection to server
+                        inv.Open();
+                        //sql command that selects the employeeID
+                        SqlCommand getEmployeeID = new SqlCommand("SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + employeeName + "';", inv);
+                        //sets the employeeID to the ID that was grabbed from getEmployeeID command
+                        int employeeID = Convert.ToInt32(getEmployeeID.ExecuteScalar());
+                        //closes connection
+                        inv.Close();
+
+                        //Attempt to insert part from the Google Sheet
                         SqlCommand insertPart =
                             new SqlCommand("insert into PartsAdded(EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName)"
                             + "values(CURRENT_TIMESTAMP," +
                             "@PartNumber," +
                             "@Quantity," +
-                            "(SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + row[3] + "')," +
+                            "@EmployeeID," +
                             "@EmployeeName)", inv);
 
+                        //inserts values within sql command
                         insertPart.Parameters.AddWithValue("@PartNumber", row[1]);
                         insertPart.Parameters.AddWithValue("@Quantity", row[2]);
-                        //insertPart.Parameters.AddWithValue("@EmployeeID", "(select EmployeeID from Employees where EmployeeName = '" + row[3] + "')");
+                        insertPart.Parameters.AddWithValue("@EmployeeID", employeeID);
                         insertPart.Parameters.AddWithValue("@EmployeeName", row[3]);
 
+                        //verifies user the parameter is working
+                        Console.WriteLine("InsParams Working");
+
+                        //opens the inv then executes nonquery then closes connection
                         inv.Open();
+                        Console.WriteLine("inv opened");
                         insertPart.ExecuteNonQuery();
+                        Console.WriteLine("NonQuery Executed");
                         inv.Close();
+                        Console.WriteLine("inv closed");
 
 
                     }
