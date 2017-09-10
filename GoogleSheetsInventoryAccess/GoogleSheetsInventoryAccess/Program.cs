@@ -70,7 +70,7 @@ namespace SheetsQuickstart
                     //Send data to sqlServer Database "InventoryTest"
 
                     //change Data Source to name of server
-                    SqlConnection inv = new SqlConnection("Data Source=DESKTOP-VB076EU; Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
+                    SqlConnection inv = new SqlConnection("Data Source=ALEX-PC; Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
                     {
                         //Attempt to get the EmployeeID
                         //String that sets the employee name for current row
