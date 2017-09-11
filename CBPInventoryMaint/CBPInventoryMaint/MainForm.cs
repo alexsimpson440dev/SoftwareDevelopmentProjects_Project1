@@ -33,38 +33,47 @@ namespace CBPInventoryMaint
             {
                 //Opens connection to server/database
                 inv.Open();
-                SqlCommand getEmployeeName = new SqlCommand("SELECT EmployeeName FROM Employees;", inv);
-                SqlDataReader sqlReader = getEmployeeName.ExecuteReader();
-
+                //sets and sql command and then sets a reader to read data from the command
+                //ideas and help from: https://stackoverflow.com/questions/12900062/c-sharp-fill-combo-box-from-sql-datatable
+                SqlCommand getEmployeesTable = new SqlCommand("SELECT * FROM Employees;", inv);
+                SqlDataReader sqlReader = getEmployeesTable.ExecuteReader();
+                int employeeID;
+                //calls reader to read then specifies to add items to combo box with params of "EmployeeName"
                 while (sqlReader.Read())
                 {
                     employeeNameComboBox.Items.Add(sqlReader["EmployeeName"].ToString());
+                    employeeID = Convert.ToInt32(sqlReader["EmployeeID"]);
+                    MessageBox.Show("EmployeeID: " + employeeID);
                 }
-
+                
+                //closes the reader
                 sqlReader.Close();
             }
         }
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
-           /* //gets connection string for server/database
+           ///gets connection string for server/database
             SqlConnection inv = new SqlConnection("Data Source=ALEX-PC; Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
             {
                 //Opens connection to server/database
                 inv.Open();
-                SqlCommand getEmployeeName = new SqlCommand("SELECT EmployeeName FROM Employees;", inv);
 
-                string employeeName = getEmployeeName.ToString();
-                string partNumber = partNumberTextBox.ToString();
-                int quantity = Convert.ToInt32(quantityTextBox);
+                string employeeName = employeeNameComboBox.Text.ToString();
+                string partNumber = partNumberTextBox.Text.ToString();
+                int quantity = Convert.ToInt32(quantityTextBox.Text);
 
                 //sql command that selects the employeeID
-                SqlCommand getEmployeeID = new SqlCommand("SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + employeeName + "';", inv);
+                string selectID = "SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + employeeName + "'";
+                MessageBox.Show(selectID);
+                SqlCommand getEmployeeID = new SqlCommand(selectID, inv);
+
                 //sets the employeeID to the ID that was grabbed from getEmployeeID command
                 int employeeID = Convert.ToInt32(getEmployeeID.ExecuteScalar());
                 //closes connection
                 inv.Close();
 
+                
                 //Attempt to insert part from the Google Sheet
                 SqlCommand insertPart =
                     new SqlCommand("insert into PartsAdded(EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName)"
@@ -75,10 +84,10 @@ namespace CBPInventoryMaint
                     "@EmployeeName)", inv);
 
                 //inserts values within sql command
-                insertPart.Parameters.AddWithValue("@PartNumber",);
-                insertPart.Parameters.AddWithValue("@Quantity",);
+                insertPart.Parameters.AddWithValue("@PartNumber", partNumber);
+                insertPart.Parameters.AddWithValue("@Quantity", quantity);
                 insertPart.Parameters.AddWithValue("@EmployeeID", employeeID);
-                insertPart.Parameters.AddWithValue("@EmployeeName",);
+                insertPart.Parameters.AddWithValue("@EmployeeName", employeeName);
 
                 //verifies user the parameter is working
                 Console.WriteLine("InsParams Working");
@@ -91,10 +100,8 @@ namespace CBPInventoryMaint
                 inv.Close();
                 Console.WriteLine("inv closed");
 
-
             }
 
-    */
         }
     }
 }

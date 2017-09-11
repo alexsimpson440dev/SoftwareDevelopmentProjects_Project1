@@ -52,7 +52,7 @@
             // 
             // addItemBtn
             // 
-            this.addItemBtn.Location = new System.Drawing.Point(164, 140);
+            this.addItemBtn.Location = new System.Drawing.Point(164, 120);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);
             this.addItemBtn.TabIndex = 6;
@@ -119,7 +119,7 @@
             // 
             // quantityTextBox
             // 
-            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsAddedBindingSource, "Quantity", true));
+            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsAddedBindingSource, "Quantity", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.quantityTextBox.Location = new System.Drawing.Point(118, 58);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(121, 20);
@@ -137,6 +137,7 @@
             // employeeNameComboBox
             // 
             this.employeeNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsAddedBindingSource, "EmployeeName", true));
+            this.employeeNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.employeeNameComboBox.FormattingEnabled = true;
             this.employeeNameComboBox.Location = new System.Drawing.Point(118, 84);
             this.employeeNameComboBox.Name = "employeeNameComboBox";
