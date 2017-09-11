@@ -37,13 +37,11 @@ namespace CBPInventoryMaint
                 //ideas and help from: https://stackoverflow.com/questions/12900062/c-sharp-fill-combo-box-from-sql-datatable
                 SqlCommand getEmployeesTable = new SqlCommand("SELECT * FROM Employees;", inv);
                 SqlDataReader sqlReader = getEmployeesTable.ExecuteReader();
-                int employeeID;
+
                 //calls reader to read then specifies to add items to combo box with params of "EmployeeName"
                 while (sqlReader.Read())
                 {
                     employeeNameComboBox.Items.Add(sqlReader["EmployeeName"].ToString());
-                    employeeID = Convert.ToInt32(sqlReader["EmployeeID"]);
-                    MessageBox.Show("EmployeeID: " + employeeID);
                 }
                 
                 //closes the reader
@@ -59,46 +57,56 @@ namespace CBPInventoryMaint
                 //Opens connection to server/database
                 inv.Open();
 
-                string employeeName = employeeNameComboBox.Text.ToString();
-                string partNumber = partNumberTextBox.Text.ToString();
-                int quantity = Convert.ToInt32(quantityTextBox.Text);
+                try
+                {
+                    string employeeName = employeeNameComboBox.Text.ToString();
+                    string partNumber = partNumberTextBox.Text.ToString();
+                    int quantity = Convert.ToInt32(quantityTextBox.Text);
 
-                //sql command that selects the employeeID
-                string selectID = "SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + employeeName + "'";
-                MessageBox.Show(selectID);
-                SqlCommand getEmployeeID = new SqlCommand(selectID, inv);
+                    //sql command that selects the employeeID
+                    string selectID = "SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + employeeName + "'";
+                    MessageBox.Show(selectID);
+                    SqlCommand getEmployeeID = new SqlCommand(selectID, inv);
 
-                //sets the employeeID to the ID that was grabbed from getEmployeeID command
-                int employeeID = Convert.ToInt32(getEmployeeID.ExecuteScalar());
-                //closes connection
-                inv.Close();
+                    //sets the employeeID to the ID that was grabbed from getEmployeeID command
+                    int employeeID = Convert.ToInt32(getEmployeeID.ExecuteScalar());
+                    //closes connection
+                    inv.Close();
 
-                
-                //Attempt to insert part from the Google Sheet
-                SqlCommand insertPart =
-                    new SqlCommand("insert into PartsAdded(EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName)"
-                    + "values(CURRENT_TIMESTAMP," +
-                    "@PartNumber," +
-                    "@Quantity," +
-                    "@EmployeeID," +
-                    "@EmployeeName)", inv);
 
-                //inserts values within sql command
-                insertPart.Parameters.AddWithValue("@PartNumber", partNumber);
-                insertPart.Parameters.AddWithValue("@Quantity", quantity);
-                insertPart.Parameters.AddWithValue("@EmployeeID", employeeID);
-                insertPart.Parameters.AddWithValue("@EmployeeName", employeeName);
+                    //Attempt to insert part from the Google Sheet
+                    SqlCommand insertPart =
+                        new SqlCommand("insert into PartsAdded(EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName)"
+                        + "values(CURRENT_TIMESTAMP," +
+                        "@PartNumber," +
+                        "@Quantity," +
+                        "@EmployeeID," +
+                        "@EmployeeName)", inv);
 
-                //verifies user the parameter is working
-                Console.WriteLine("InsParams Working");
+                    //inserts values within sql command
+                    insertPart.Parameters.AddWithValue("@PartNumber", partNumber);
+                    insertPart.Parameters.AddWithValue("@Quantity", quantity);
+                    insertPart.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    insertPart.Parameters.AddWithValue("@EmployeeName", employeeName);
 
-                //opens the inv then executes nonquery then closes connection
-                inv.Open();
-                Console.WriteLine("inv opened");
-                insertPart.ExecuteNonQuery();
-                Console.WriteLine("NonQuery Executed");
-                inv.Close();
-                Console.WriteLine("inv closed");
+                    //verifies user the parameter is working
+                    Console.WriteLine("InsParams Working");
+
+                    //opens the inv then executes nonquery then closes connection
+                    inv.Open();
+                    insertPart.ExecuteNonQuery();
+                    inv.Close();
+                    MessageBox.Show("Data Entered into Database");
+
+                    partNumberTextBox.Clear();
+                    quantityTextBox.Clear();
+                    employeeNameComboBox.Text = "";
+                }
+
+                catch (FormatException)
+                {
+                    MessageBox.Show("Invalid data format entered! Please enter in valid data!", "Format Exception");
+                }
 
             }
 
