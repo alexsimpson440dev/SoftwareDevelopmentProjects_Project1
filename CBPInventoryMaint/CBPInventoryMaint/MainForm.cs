@@ -65,7 +65,6 @@ namespace CBPInventoryMaint
 
                     //sql command that selects the employeeID
                     string selectID = "SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + employeeName + "'";
-                    MessageBox.Show(selectID);
                     SqlCommand getEmployeeID = new SqlCommand(selectID, inv);
 
                     //sets the employeeID to the ID that was grabbed from getEmployeeID command
@@ -100,7 +99,7 @@ namespace CBPInventoryMaint
 
                     partNumberTextBox.Clear();
                     quantityTextBox.Clear();
-                    employeeNameComboBox.Text = "";
+                    partNumberTextBox.Focus();
                 }
 
                 catch (FormatException)
