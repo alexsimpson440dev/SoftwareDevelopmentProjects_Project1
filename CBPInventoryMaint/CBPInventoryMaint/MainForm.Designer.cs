@@ -223,7 +223,6 @@
             this.updatePartNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsAddedBindingSource, "PartNumber", true));
             this.updatePartNumberTextBox.Location = new System.Drawing.Point(123, 278);
             this.updatePartNumberTextBox.Name = "updatePartNumberTextBox";
-            this.updatePartNumberTextBox.ReadOnly = true;
             this.updatePartNumberTextBox.Size = new System.Drawing.Size(121, 20);
             this.updatePartNumberTextBox.TabIndex = 19;
             // 
@@ -232,7 +231,6 @@
             this.updateQuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsAddedBindingSource, "Quantity", true));
             this.updateQuantityTextBox.Location = new System.Drawing.Point(123, 304);
             this.updateQuantityTextBox.Name = "updateQuantityTextBox";
-            this.updateQuantityTextBox.ReadOnly = true;
             this.updateQuantityTextBox.Size = new System.Drawing.Size(121, 20);
             this.updateQuantityTextBox.TabIndex = 21;
             // 

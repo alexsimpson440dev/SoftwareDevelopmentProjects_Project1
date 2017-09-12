@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CBPInventoryMaint
 {
@@ -20,6 +21,7 @@ namespace CBPInventoryMaint
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
             //gets connection string for server/database
             using (SqlConnection inv = new SqlConnection("Data Source=ALEX-PC; Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False"))
             {
@@ -131,7 +133,56 @@ namespace CBPInventoryMaint
 
         private void updateEntryBtn_Click(object sender, EventArgs e)
         {
+            //gets connection to database
+            SqlConnection inv = new SqlConnection("Data Source=ALEX-PC;Initial Catalog=InventoryTest;Integrated Security=True;Pooling=False");
+            {
+                //opens connection
+                inv.Open();
 
+                try
+                {
+                    //variables to get data from textboxes/combobox
+                    string updatedPartNumber = updatePartNumberTextBox.Text.ToString();
+                    int updatedQuantity = Convert.ToInt32(updateQuantityTextBox.Text);
+                    string updatedEmployeeName = updateEmployeeNameComboBox.Text.ToString();
+                    int entryID = Convert.ToInt32(entryIDTextBox.Text);
+
+                    //string to assign a select statment to get the employeeid from the employees table using the new EmployeeName
+                    string selectID = "SELECT EmployeeID FROM Employees WHERE EmployeeName = '" + updatedEmployeeName + "'";
+                    SqlCommand getEmployeeID = new SqlCommand(selectID, inv);
+                    //sets the employeeID to the ID that was grabbed from getEmployeeID command
+                    int employeeID = Convert.ToInt32(getEmployeeID.ExecuteScalar());
+                    //closes Connection
+                    inv.Close();
+
+                    //string that assigns an update statement
+                    string updateStatement = "UPDATE PartsAdded SET PartNumber = '" + updatedPartNumber + "', " +
+                    "Quantity = '" + updatedQuantity + "', " +
+                    "EmployeeID = '" + employeeID + "', " +
+                    "EmployeeName = '" + updatedEmployeeName + "' " +
+                    "WHERE EntryID = " + entryID + ";";
+                    //sends the updateStatement string to a command that will execute in the inv connection
+                    SqlCommand updatePart =
+                    new SqlCommand(updateStatement, inv);
+
+                    //opens connection
+                    inv.Open();
+                    //executes Update Statement
+                    updatePart.ExecuteNonQuery();
+                    MessageBox.Show("Updated Part. EntryID: " + entryID.ToString(), "Confirmation");
+                    //closes connection
+                    inv.Close();
+                }
+                
+                //catches format exceptions
+                catch (FormatException ex)
+                {
+                    if (entryIDTextBox.Text == "")
+                        MessageBox.Show("Please Select an EntryID!", ex.GetType().ToString());
+                    if (updateQuantityTextBox.Text.ToString() == "")
+                        MessageBox.Show("Please Enter in a Quantity", ex.GetType().ToString());
+                }
+            }
         }
 
         private void updateEntryNUD_ValueChanged(object sender, EventArgs e)
