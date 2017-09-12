@@ -136,7 +136,11 @@ namespace CBPInventoryMaint
 
         private void updateEntryNUD_ValueChanged(object sender, EventArgs e)
         {
+            //Sets a variable to get the value from the Entry Number Up Down
+            //Method will run everytime the Value is changed
             int updateEntry = Convert.ToInt32(updateEntryNUD.Value);
+
+            //Fills in Information via a Query into textboxes from the EntryID
             this.partsAddedTableAdapter.FillByEntryID(this.inventoryTestDataSet.PartsAdded, updateEntry);
         }
     }
