@@ -51,6 +51,9 @@
     <Compile Include="All Parts Added.Designer.cs">
       <DependentUpon>All Parts Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryTestDataSet.cs">
+      <DependentUpon>InventoryTestDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

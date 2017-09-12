@@ -18,14 +18,6 @@ namespace CBPInventoryMaint
             InitializeComponent();
         }
 
-        private void partsAddedBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.partsAddedBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.inventoryTestDataSet);
-
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             //gets connection string for server/database
@@ -37,17 +29,22 @@ namespace CBPInventoryMaint
                 //ideas and help from: https://stackoverflow.com/questions/12900062/c-sharp-fill-combo-box-from-sql-datatable
                 SqlCommand getEmployeesTable = new SqlCommand("SELECT * FROM Employees;", inv);
                 SqlDataReader sqlReader = getEmployeesTable.ExecuteReader();
-
                 //calls reader to read then specifies to add items to combo box with params of "EmployeeName"
                 while (sqlReader.Read())
                 {
                     employeeNameComboBox.Items.Add(sqlReader["EmployeeName"].ToString());
-                }
-                
+                    updateEmployeeNameComboBox.Items.Add(sqlReader["EmployeeName"].ToString());
+                }             
                 //closes the reader
                 sqlReader.Close();
+
+
+                //Closes Connection to database
+                inv.Close();
             }
         }
+
+
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
@@ -127,8 +124,20 @@ namespace CBPInventoryMaint
 
         private void openAllPartsAddedBtn_Click(object sender, EventArgs e)
         {
+            //opens a new form that will show all Parts added to the database
             All_Parts_Added openAllPartsAddedForm = new All_Parts_Added();
             openAllPartsAddedForm.Show();
+        }
+
+        private void updateEntryBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateEntryNUD_ValueChanged(object sender, EventArgs e)
+        {
+            int updateEntry = Convert.ToInt32(updateEntryNUD.Value);
+            this.partsAddedTableAdapter.FillByEntryID(this.inventoryTestDataSet.PartsAdded, updateEntry);
         }
     }
 }
