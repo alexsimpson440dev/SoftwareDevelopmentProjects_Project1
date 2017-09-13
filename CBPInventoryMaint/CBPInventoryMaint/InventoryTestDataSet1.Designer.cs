@@ -20,9 +20,9 @@ namespace CBPInventoryMaint {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("InventoryTestDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("InventoryTestDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class InventoryTestDataSet : global::System.Data.DataSet {
+    public partial class InventoryTestDataSet1 : global::System.Data.DataSet {
         
         private ChromeBookPartsDataTable tableChromeBookParts;
         
@@ -36,7 +36,7 @@ namespace CBPInventoryMaint {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public InventoryTestDataSet() {
+        public InventoryTestDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -47,7 +47,7 @@ namespace CBPInventoryMaint {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected InventoryTestDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected InventoryTestDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -159,7 +159,7 @@ namespace CBPInventoryMaint {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            InventoryTestDataSet cln = ((InventoryTestDataSet)(base.Clone()));
+            InventoryTestDataSet1 cln = ((InventoryTestDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -250,9 +250,9 @@ namespace CBPInventoryMaint {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "InventoryTestDataSet";
+            this.DataSetName = "InventoryTestDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/InventoryTestDataSet.xsd";
+            this.Namespace = "http://tempuri.org/InventoryTestDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableChromeBookParts = new ChromeBookPartsDataTable();
@@ -296,7 +296,7 @@ namespace CBPInventoryMaint {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            InventoryTestDataSet ds = new InventoryTestDataSet();
+            InventoryTestDataSet1 ds = new InventoryTestDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -581,7 +581,7 @@ namespace CBPInventoryMaint {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InventoryTestDataSet ds = new InventoryTestDataSet();
+                InventoryTestDataSet1 ds = new InventoryTestDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -886,7 +886,7 @@ namespace CBPInventoryMaint {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InventoryTestDataSet ds = new InventoryTestDataSet();
+                InventoryTestDataSet1 ds = new InventoryTestDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1228,7 +1228,7 @@ namespace CBPInventoryMaint {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InventoryTestDataSet ds = new InventoryTestDataSet();
+                InventoryTestDataSet1 ds = new InventoryTestDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1600,7 +1600,7 @@ namespace CBPInventoryMaint {
         }
     }
 }
-namespace CBPInventoryMaint.InventoryTestDataSetTableAdapters {
+namespace CBPInventoryMaint.InventoryTestDataSet1TableAdapters {
     
     
     /// <summary>
@@ -1762,7 +1762,7 @@ SELECT PartNumber, CBBrand, CBModel FROM ChromeBookParts WHERE (PartNumber = @Pa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CBPInventoryMaint.Properties.Settings.Default.InventoryTestConnectionString;
+            this._connection.ConnectionString = global::CBPInventoryMaint.Properties.Settings.Default.InventoryTestConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1779,7 +1779,7 @@ SELECT PartNumber, CBBrand, CBModel FROM ChromeBookParts WHERE (PartNumber = @Pa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InventoryTestDataSet.ChromeBookPartsDataTable dataTable) {
+        public virtual int Fill(InventoryTestDataSet1.ChromeBookPartsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1792,9 +1792,9 @@ SELECT PartNumber, CBBrand, CBModel FROM ChromeBookParts WHERE (PartNumber = @Pa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InventoryTestDataSet.ChromeBookPartsDataTable GetData() {
+        public virtual InventoryTestDataSet1.ChromeBookPartsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InventoryTestDataSet.ChromeBookPartsDataTable dataTable = new InventoryTestDataSet.ChromeBookPartsDataTable();
+            InventoryTestDataSet1.ChromeBookPartsDataTable dataTable = new InventoryTestDataSet1.ChromeBookPartsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1802,14 +1802,14 @@ SELECT PartNumber, CBBrand, CBModel FROM ChromeBookParts WHERE (PartNumber = @Pa
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryTestDataSet.ChromeBookPartsDataTable dataTable) {
+        public virtual int Update(InventoryTestDataSet1.ChromeBookPartsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryTestDataSet dataSet) {
+        public virtual int Update(InventoryTestDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "ChromeBookParts");
         }
         
@@ -2138,7 +2138,7 @@ SELECT EmployeeID, EmployeeName, HireDate, JobTitle FROM Employees WHERE (Employ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CBPInventoryMaint.Properties.Settings.Default.InventoryTestConnectionString;
+            this._connection.ConnectionString = global::CBPInventoryMaint.Properties.Settings.Default.InventoryTestConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2155,7 +2155,7 @@ SELECT EmployeeID, EmployeeName, HireDate, JobTitle FROM Employees WHERE (Employ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InventoryTestDataSet.EmployeesDataTable dataTable) {
+        public virtual int Fill(InventoryTestDataSet1.EmployeesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2168,9 +2168,9 @@ SELECT EmployeeID, EmployeeName, HireDate, JobTitle FROM Employees WHERE (Employ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InventoryTestDataSet.EmployeesDataTable GetData() {
+        public virtual InventoryTestDataSet1.EmployeesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InventoryTestDataSet.EmployeesDataTable dataTable = new InventoryTestDataSet.EmployeesDataTable();
+            InventoryTestDataSet1.EmployeesDataTable dataTable = new InventoryTestDataSet1.EmployeesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2178,14 +2178,14 @@ SELECT EmployeeID, EmployeeName, HireDate, JobTitle FROM Employees WHERE (Employ
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryTestDataSet.EmployeesDataTable dataTable) {
+        public virtual int Update(InventoryTestDataSet1.EmployeesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryTestDataSet dataSet) {
+        public virtual int Update(InventoryTestDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Employees");
         }
         
@@ -2503,31 +2503,25 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CBPInventoryMaint.Properties.Settings.Default.InventoryTestConnectionString;
+            this._connection.ConnectionString = global::CBPInventoryMaint.Properties.Settings.Default.InventoryTestConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM db" +
                 "o.PartsAdded";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName\r\nFROM d" +
-                "bo.PartsAdded\r\nWHERE (EntryID = @EntryID)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EntryID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InventoryTestDataSet.PartsAddedDataTable dataTable) {
+        public virtual int Fill(InventoryTestDataSet1.PartsAddedDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2540,9 +2534,9 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InventoryTestDataSet.PartsAddedDataTable GetData() {
+        public virtual InventoryTestDataSet1.PartsAddedDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InventoryTestDataSet.PartsAddedDataTable dataTable = new InventoryTestDataSet.PartsAddedDataTable();
+            InventoryTestDataSet1.PartsAddedDataTable dataTable = new InventoryTestDataSet1.PartsAddedDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2550,28 +2544,14 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByEntryID(InventoryTestDataSet.PartsAddedDataTable dataTable, int EntryID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(EntryID));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryTestDataSet.PartsAddedDataTable dataTable) {
+        public virtual int Update(InventoryTestDataSet1.PartsAddedDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryTestDataSet dataSet) {
+        public virtual int Update(InventoryTestDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "PartsAdded");
         }
         
@@ -2862,7 +2842,7 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(InventoryTestDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(InventoryTestDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._employeesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -2899,7 +2879,7 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(InventoryTestDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(InventoryTestDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._employeesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -2933,7 +2913,7 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(InventoryTestDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(InventoryTestDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._partsAddedTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PartsAdded.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -2991,7 +2971,7 @@ SELECT EntryID, EntryTime, PartNumber, Quantity, EmployeeID, EmployeeName FROM P
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(InventoryTestDataSet dataSet) {
+        public virtual int UpdateAll(InventoryTestDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

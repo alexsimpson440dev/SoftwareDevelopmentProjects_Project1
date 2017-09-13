@@ -54,6 +54,11 @@
     <Compile Include="InventoryTestDataSet.cs">
       <DependentUpon>InventoryTestDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InventoryTestDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryTestDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +97,17 @@
     </None>
     <None Include="InventoryTestDataSet.xss">
       <DependentUpon>InventoryTestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryTestDataSet1.xsc">
+      <DependentUpon>InventoryTestDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryTestDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventoryTestDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InventoryTestDataSet1.xss">
+      <DependentUpon>InventoryTestDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

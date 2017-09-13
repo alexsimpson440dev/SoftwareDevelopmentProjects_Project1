@@ -32,7 +32,7 @@ namespace CBPInventoryMaint
             //Trys to fill in information from database, if it fails, the exception will be caught and information will be displayed.
             try
             {
-                // TODO: This line of code loads data into the 'inventoryTestDataSet.PartsAdded' table. You can move, or remove it, as needed.
+                // TODO: This line of code loads data into the 'inventoryTestDataSet.PartsAdded' table. 
                 this.partsAddedTableAdapter.Fill(this.inventoryTestDataSet.PartsAdded);
             }
 
@@ -42,6 +42,11 @@ namespace CBPInventoryMaint
                 MessageBox.Show("Error Loading Database Information. Please check connection to database! Error Number: " + ex.Number +
                     ". Error Message: " + ex.Message, ex.GetType().ToString());
             }
+
+        }
+
+        private void partsAddedBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
 
         }
     }
